@@ -101,6 +101,7 @@ class Tiler
 	
 		image.background_color = @bg_color
 		image.extent(dim, dim) unless @cut_edges
+		image
 	end
 
 	def get_image(image_source)
