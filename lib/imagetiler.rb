@@ -25,8 +25,7 @@ class Tiler
 
 	TILE_SIZE = 256
 
-	attr_accessor(:output_dir, :zoom_levels, :bg_color, 
-								:format, :autocreate_dirs, :prefix)
+	attr_accessor(:output_dir, :zoom_levels, :bg_color, :format, :autocreate_dirs, :prefix)
 
 	def initialize()
 		@zoom_levels = 0..4
@@ -44,8 +43,8 @@ class Tiler
 		# initializing and setting options and stuff
 		image = get_image(image_source)
 		opts.each_pair do |key,value|
-       instance_variable_set "@#{key}", value
-    end
+       			instance_variable_set "@#{key}", value
+    		end
 
 		if @autocreate_dirs
 			create_dir(output_dir)
@@ -72,7 +71,7 @@ class Tiler
 					# Image.crop(x,y,width,height,toss offset information)
 					tile = image_sq.crop(col*tile_length, row*tile_length,
 															 tile_length, tile_length, true)
-					#tile.resize!(TILE_SIZE,TILE_SIZE)
+					tile.resize!(TILE_SIZE,TILE_SIZE)
 
 					# output tile
 					filename = File.join(@output_dir, "#{prefix}_#{zoom}_#{col}_#{row}.#{@format}")
