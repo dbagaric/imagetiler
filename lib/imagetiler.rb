@@ -100,8 +100,6 @@ class Tiler
 		dim = calc_side_length(image)
 	
 		image.background_color = @bg_color
-		
-		puts "padding image"
 		image.extent(dim, dim) unless @cut_edges
 	end
 
