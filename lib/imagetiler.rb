@@ -72,7 +72,7 @@ class Tiler
 					# Image.crop(x,y,width,height,toss offset information)
 					tile = image_sq.crop(col*tile_length, row*tile_length,
 															 tile_length, tile_length, true)
-					tile.resize!(TILE_SIZE,TILE_SIZE)
+					#tile.resize!(TILE_SIZE,TILE_SIZE)
 
 					# output tile
 					filename = File.join(@output_dir, "#{prefix}_#{zoom}_#{col}_#{row}.#{@format}")
