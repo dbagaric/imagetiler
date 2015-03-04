@@ -35,6 +35,7 @@ class Tiler
 		@autocreate_dirs = true
 		@output_dir = "."
 		@prefix = "tile"
+		@cut_edges = true
 	end
 	
 	# image_source can either be an RMagick Image or a string specifying the filename
@@ -101,7 +102,7 @@ class Tiler
 		image.background_color = @bg_color
 		
 		puts "padding image"
-		image.extent(dim, dim)
+		image.extent(dim, dim) unless @cut_edges
 	end
 
 	def get_image(image_source)
